@@ -1,0 +1,99 @@
+﻿@model OrderViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Order</h1>
+<div class="continer">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-striped table-responsive-sm table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model.Product) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            <form method="post">
+                                <input class="btn btn-secondary btn-sm" type="submit" asp-controller="NewOrder" asp-action="Order" asp-for="@item"/>+
+                            </form>
+                        </td>
+                    </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="continer">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-striped table-responsive-sm table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            Order Details
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model.OrderManager) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderedProduct)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GrandTotal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsPaid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsServed)
+                        </td>
+                        <td>
+                          
+                        </td>
+                    </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

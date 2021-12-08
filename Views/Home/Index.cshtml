@@ -1,0 +1,17 @@
+﻿@model OrderViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron border-dark">
+    <h1 class="display-4">Coffee House</h1>
+    <br/>
+    <br/>
+    <form method="get">
+        <button class="btn btn-dark btn-lg" type="submit" asp-controller="NewOrder" asp-action="Index">New Order</button>
+        <button class="btn btn-dark btn-lg" type="submit" asp-controller="Order" asp-action="Index">Active Orders</button>
+        <button class="btn btn-dark btn-lg" type="submit" asp-controller="Customer" asp-action="Index">Customer Manager</button>
+        <button class="btn btn-dark btn-lg" type="submit" asp-controller="Product" asp-action="Index">Product Manager</button>
+    </form>
+    
+</div>
